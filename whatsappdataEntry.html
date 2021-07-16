@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WhatsappDataEntry</title>
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.js" integrity="sha512-4fpPq5LCcSAofCKmaM58RSbjpVRUqjx8nKAaBQVFay4MRo7FLafbt6bUNUfUbTZcSMzRNxZuVj3shwHA6ZeiOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+<script src="./js/whatsappdataentry.js"></script>
+<link rel="stylesheet" href="./css/validate.css">
+</head>
+<body style="background-color:#FDF2E9">
+    <nav class="navbar navbar-expand-lg " >
+        <a class="navbar-brand" href="# " style="font-size: 25px;font-style:italic" id="user_title"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto" style="color: #000406;" >
+               <a class="nav-tab nav-link active" href="Volunteer_Homes.html" style="font-size: 20px;">DonarInfo <span class="sr-only">(current)</span></a>
+            <a class="nav-tab nav-link" href="OrphanageHomedata.html" style="font-size: 20px;">OrphanageInfo</a>
+            <a class="nav-tab nav-link" href="whatsappdataEntry.html" style="font-size: 20px;">WhatsappDataEntry</a>
+            <a class="nav-tab nav-link" href="whastappfooddata.html" style="font-size: 20px;">WhatsappFoodInfo</a>
+            <a class="nav-tab nav-link" href="volunteer_profile.html" style="font-size: 20px;">Profile</a>
+            <a class="nav-tab nav-link" href="#" onclick="logout()" style="font-size: 20px;">Logout</a>
+
+          </div>
+        </div>
+      </nav>
+      <div class="container col-md-5" >
+<div class="card">
+  <div class="card-body">
+    
+
+                <form>
+                    <!-- <h5 class="text-center">WhatsappDataEntry</h5> -->
+                    <h4 class="card-title text-center text-info">WhatsappFoodData Entry</h4>
+                    <div class="form-group mt-2">
+                        <label for="pwd">PhoneNumber:</label>
+                        <!-- <input type="text" class="form-control" id="PhoneNumber" maxlength="10" > -->
+                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number" class="form-control" id="PhoneNumber"  maxlength = "10"
+                     />
+                        <small id="ErrorMessage" class="text-danger"></small>
+                       <small id="InvalidMessage" class="text-info"></small>
+                       <small id="SuccessMessage" class="text-success"></small>
+                      </div>
+                    <div class="form-group">
+
+                        <label for="usr">Name:</label>
+                        <input type="text" class="form-control" id="usr">
+                        <small id="Error_Message" class="text-danger"></small>
+                        <small id="Invalid_Message" class="text-info"></small>
+                        <small id="Success_Message" class="text-success"></small>
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="mail">
+                    <small id="ErrorMessage_Mail" class="text-danger"></small>
+                    <small id="InvalidMessage_Mail" class="text-info"></small>
+                    <small id="SuccessMessage_Mail" class="text-success"></small>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="rd1" value="Event">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Event
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="rd2" value="Hotel">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Hotel
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="rd3" value="Restaurant">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                         Restaurant
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="rd4" value="Hostel">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Hostel
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="rd5" value="individual">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Individual
+                        </label>
+                      </div>
+                      <small id="Error_check" class="text-danger"></small>
+                      <small id="success_check" class="text-success"></small>
+                      
+                    <div class="form-group">
+                        <label for="usr">Quantity:</label>
+                      
+                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number" class="form-control" id="Quantity"  maxlength = "3"
+                     />
+                        <small id="ErrorMessage_Quantity" class="text-danger"></small>
+                       <small id="InvalidMessage_Quantity" class="text-info"></small>
+                       <small id="SuccessMessage_Quantity" class="text-success"></small>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="pwd">Address:</label>
+                        <input type="text" class="form-control" id="Address">
+                        <small id="ErrorMessage_Address" class="text-danger"></small>
+                        <small id="InvalidMessage_Address" class="text-info"></small>
+                        <small id="SuccessMessage_Address" class="text-success"></small>
+                      </div>
+
+                    <button type="button" class="btn btn-primary mb-3" onclick="submit_data()">Submit</button>
+                  </form>
+  </div>
+</div>
+        </div>
+
+</body>
+</html>
+<style>
+  body{
+    background-image: url('./images/profile.jfif');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    font-family:verdana;
+
+  }
+    .navbar{
+        background-color:#D6EAF8 ;
+    }
+    .navbar-nav a{
+        color: #24292C;
+    }
+    .navbar-toggler-icon {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(133, 193, 233)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+      color: #EBF5FB;
+    }
+    
+
+</style>

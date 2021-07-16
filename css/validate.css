@@ -1,0 +1,12 @@
+.a{
+    display: none;
+}
+.displaySuccessMessage{
+    display: block;;
+}
+.displayErrorMessage{
+    display: block;
+}
+.displayInvalidMessage{
+    display: block;
+}

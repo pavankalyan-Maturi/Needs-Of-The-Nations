@@ -1,0 +1,20 @@
+.sociallinks{
+    font-size: 25px;
+}
+.sociallinks a{
+
+        /* color: #D6EAF8; */
+        font-size: 28px;
+        border: 2px solid white;
+        border-radius: 30px;
+        padding: 2px;
+        transition:all .2s ease-in;
+        /* background-color: white; */
+    }
+.fa-youtube{
+color:tomato
+} 
+.fa-instagram{
+color:#F78EC4;
+border-radius: 50%;
+}
